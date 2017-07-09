@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+var argv = require('minimist')(process.argv.slice(2))
+var nextTrainFor = require('../')
+var Table = require('cli-table')
+
+nextTrainFor(argv)
+  .then(resp => {
+    var table = new Table({
+      head: ['Train', 'Station', 'Next train predictions']
+    })
+    table.push(
+      ...resp.predictions.map(prediction => [
+        resp.route.display_name,
+        resp.stop.display_name,
+        prediction.minutes
+      ])
+    )
+    console.log(table.toString())
+  })
+  .catch(err => {
+    console.log(err)
+  })

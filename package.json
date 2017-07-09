@@ -1,0 +1,15 @@
+{
+  "name": "next-train-for",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "lametro": "^0.3.1",
+    "minimist": "^1.2.0",
+    "terminal-table": "0.0.12"
+  },
+  "bin": {
+    "next-train-for": "./bin/next-train-for"
+  }
+}
